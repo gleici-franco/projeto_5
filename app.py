@@ -3,12 +3,13 @@ import plotly.express as px
 import streamlit as st
 
 car_data = pd.read_csv('vehicles.csv')  # lendo os dados
+st.header('Dashboard de Vendas de Carros')  # criando um cabeçalho
 hist_button = st.button('Criar histograma')  # criar um botão
 
 if hist_button:  # se o botão for clicado
     # escrever uma mensagem
     st.write(
-        'Criando um histograma para o conjunto de dados de anúncios de vendas de carros')
+        'Distribuição de Quilometragem')
 
     # criar um histograma
     fig = px.histogram(car_data, x="odometer")
@@ -20,6 +21,6 @@ if hist_button:  # se o botão for clicado
 scatter_button = st.button('Criar gráfico de dispersão')
 if scatter_button:
     st.write(
-        'Criando um gráfico de dispersão para o conjunto de dados de anúncios de vendas de carros')
+        'Analise da relação preço vs quilometragem')
     fig = px.scatter(car_data, x="odometer", y="price")
     st.plotly_chart(fig, use_container_width=True)
